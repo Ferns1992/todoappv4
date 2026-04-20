@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  todoapp:
+    image: todoappv4
+    container_name: todoappv4
+    ports:
+      - "3060:3060"
+    volumes:
+      - todo-data:/app
+    restart: unless-stopped
+
+volumes:
+  todo-data:

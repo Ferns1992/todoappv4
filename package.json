@@ -1,0 +1,12 @@
+{
+  "name": "todoappv4",
+  "version": "1.0.0",
+  "description": "Simple Todo App with SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "sql.js": "^1.10.3"
+  }
+}
