@@ -85,8 +85,8 @@ Open:
 
 The app creates these starter accounts automatically:
 
-- admin role: `admin`
-- user role: `demo`
+- admin role: `admin` / `admin123`
+- user role: `demo` / `demo123`
 
 ## Notes
 
