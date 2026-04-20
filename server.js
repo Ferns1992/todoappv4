@@ -490,15 +490,16 @@ async function handleApi(req, res, url) {
         body.notes || '',
       ]
     );
-    const lastId = fetchOne('SELECT last_insert_rowid() AS id');
     const created = fetchOne(
       `
         SELECT todos.*, users.username AS owner_name
         FROM todos
         LEFT JOIN users ON users.id = todos.user_id
-        WHERE todos.id = ?
+        WHERE todos.user_id = ?
+        ORDER BY todos.id DESC
+        LIMIT 1
       `,
-      [lastId.id]
+      [ownerId]
     );
     json(res, 201, normalizeTodo(created));
     return true;

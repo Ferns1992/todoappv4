@@ -39,6 +39,18 @@ The compose file uses a named volume so your data survives restarts and redeploy
 
 - `todoappv4-data`
 
+Stop and remove the local container when you are done:
+
+```bash
+docker compose down
+```
+
+If you also want to remove the persistent Docker volume, run:
+
+```bash
+docker compose down -v
+```
+
 ## Portainer Deployment Via Git 🔗
 
 This repository is ready to deploy as a Portainer stack from Git.
@@ -96,4 +108,5 @@ The app creates these starter accounts automatically:
 
 - session tokens are in-memory and reset when the server restarts
 - task data is persisted to disk
+- task creation returns the newly created todo correctly in local and Docker deployments
 - `node_modules` and runtime database files are excluded from git going forward
