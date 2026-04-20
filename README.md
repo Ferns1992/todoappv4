@@ -1,8 +1,12 @@
-﻿# PulseBoard Todo App
+# PulseBoard Todo App
 
-PulseBoard is a modernized todo app with role-based access, a more polished dashboard, and persistent database storage for long-running use.
+PulseBoard is a modernized todo app with role-based access, a more polished dashboard, and persistent database storage for long-running use. ✨
 
-## What Changed
+![PulseBoard dashboard preview](docs/pulseboard-dashboard.svg)
+
+![PulseBoard roles and deployment preview](docs/pulseboard-deploy.svg)
+
+## What Changed 🚀
 
 - modernized UI for a more professional look
 - `admin` and regular `user` roles
@@ -10,7 +14,7 @@ PulseBoard is a modernized todo app with role-based access, a more polished dash
 - richer tasks with priority, category, due date, and notes
 - dedicated persistent database directory for safer Docker and Portainer deployments
 
-## Database Persistence
+## Database Persistence 💾
 
 The app now stores its runtime database in a dedicated data path:
 
@@ -19,7 +23,7 @@ The app now stores its runtime database in a dedicated data path:
 
 If an older root-level `todos.db` already exists, the server copies it into the new data directory automatically on first start so existing data is not lost.
 
-## Docker Compose
+## Docker Compose 🐳
 
 Start the app on port `3060`:
 
@@ -35,7 +39,7 @@ The compose file uses a named volume so your data survives restarts and redeploy
 
 - `todoappv4-data`
 
-## Portainer Deployment Via Git
+## Portainer Deployment Via Git 🔗
 
 This repository is ready to deploy as a Portainer stack from Git.
 
@@ -56,7 +60,7 @@ Persistent task data will stay in the Docker volume:
 
 - `todoappv4-data`
 
-## Manual Docker Run
+## Manual Docker Run ⚙️
 
 ```bash
 docker build -t ferns1992/todoappv4:latest .
@@ -70,7 +74,7 @@ docker run -d \
   ferns1992/todoappv4:latest
 ```
 
-## Local Development
+## Local Development 💻
 
 ```bash
 npm install
@@ -81,14 +85,14 @@ Open:
 
 - http://localhost:3060
 
-## Seed Accounts
+## Seed Accounts 🔐
 
 The app creates these starter accounts automatically:
 
 - admin role: `admin` / `admin123`
 - user role: `demo` / `demo123`
 
-## Notes
+## Notes 📝
 
 - session tokens are in-memory and reset when the server restarts
 - task data is persisted to disk
