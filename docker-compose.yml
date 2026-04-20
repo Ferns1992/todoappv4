@@ -1,14 +1,23 @@
-version: '3.8'
-
 services:
-  todoapp:
-    image: todoappv4
+  todoappv4:
+    build:
+      context: .
+    image: ferns1992/todoappv4:latest
     container_name: todoappv4
     ports:
       - "3060:3060"
+    environment:
+      PORT: 3060
+      DB_DIR: /app/data
     volumes:
-      - todo-data:/app
+      - todoappv4-data:/app/data
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3060/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
 
 volumes:
-  todo-data:
+  todoappv4-data:
